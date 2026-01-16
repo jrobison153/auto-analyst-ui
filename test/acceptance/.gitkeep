@@ -1,0 +1,13 @@
+# Acceptance tests go here
+/**
+ * Main entry point for the application.
+ */
+export function main(): void {
+  console.log('LLM Engineering Week 2 Exercise - TypeScript Project Initialized');
+}
+
+// Run if executed directly
+if (require.main === module) {
+  main();
+}
+
