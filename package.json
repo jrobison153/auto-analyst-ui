@@ -2,7 +2,7 @@
   "name": "llm-eng-week-2-exercise",
   "version": "1.0.0",
   "type": "module",
-  "description": "UI for the Auto Analyst Stock Analsysis Application",
+  "description": "UI for the Auto Analyst Stock Analysis Application",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
