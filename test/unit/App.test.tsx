@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from '../../src/App';
 
 describe('App', () => {
@@ -10,32 +10,18 @@ describe('App', () => {
     ).toBeInTheDocument();
   });
 
-  it('should display initial count of 0', () => {
+  it('should render the chat interface', () => {
     render(<App />);
-    expect(screen.getByText(/Count: 0/i)).toBeInTheDocument();
+    expect(screen.getByText('Chat Interface')).toBeInTheDocument();
   });
 
-  it('should increment count when button is clicked', () => {
+  it('should render the message input field', () => {
     render(<App />);
-    const incrementButton = screen.getByText('Increment');
-
-    fireEvent.click(incrementButton);
-    expect(screen.getByText(/Count: 1/i)).toBeInTheDocument();
-
-    fireEvent.click(incrementButton);
-    expect(screen.getByText(/Count: 2/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Type your message...')).toBeInTheDocument();
   });
 
-  it('should reset count to 0 when reset button is clicked', () => {
+  it('should render the send button', () => {
     render(<App />);
-    const incrementButton = screen.getByText('Increment');
-    const resetButton = screen.getByText('Reset');
-
-    fireEvent.click(incrementButton);
-    fireEvent.click(incrementButton);
-    expect(screen.getByText(/Count: 2/i)).toBeInTheDocument();
-
-    fireEvent.click(resetButton);
-    expect(screen.getByText(/Count: 0/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Send' })).toBeInTheDocument();
   });
 });

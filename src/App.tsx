@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { ChatInterface } from './components/features/ChatInterface';
 
 /**
  * Main application component.
  * @returns The root App component
  */
 function App(): JSX.Element {
-  const [count, setCount] = useState(0);
+  const handleSendMessage = (message: string): void => {
+    console.log('Message sent:', message);
+  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -21,22 +23,8 @@ function App(): JSX.Element {
 
         <main>
           <div className="rounded-lg bg-gray-800 p-8 shadow-lg">
-            <h2 className="mb-4 text-2xl font-semibold">Counter Example</h2>
-            <p className="mb-4 text-lg">Count: {count}</p>
-            <div className="flex justify-center gap-4">
-              <button
-                onClick={() => setCount((c) => c + 1)}
-                className="rounded bg-blue-500 px-4 py-2 font-semibold text-white transition-colors hover:bg-blue-600"
-              >
-                Increment
-              </button>
-              <button
-                onClick={() => setCount(0)}
-                className="rounded bg-gray-600 px-4 py-2 font-semibold text-white transition-colors hover:bg-gray-700"
-              >
-                Reset
-              </button>
-            </div>
+            <h2 className="mb-4 text-2xl font-semibold">Chat Interface</h2>
+            <ChatInterface onSendMessage={handleSendMessage} />
           </div>
         </main>
 
